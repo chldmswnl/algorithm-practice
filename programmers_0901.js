@@ -21,8 +21,10 @@ function solution(N, stages) {
       totalPerson -= failNum;
     }
   }
-  const mapToArray_2 = Array.from(failureRate);
-  mapToArray_2.sort((a, b) => b[1] - a[1]);
-  mapToArray_2.map((obj) => answer.push(obj[0]));
+
+  const mapToArray = Array.from(failureRate);
+  mapToArray.sort((a, b) => b[1] - a[1]);
+  mapToArray.map((obj) => answer.push(obj[0]));
+
   return answer;
 }
