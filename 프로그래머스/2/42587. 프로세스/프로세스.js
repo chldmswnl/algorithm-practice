@@ -15,18 +15,11 @@ function solution(priorities, location) {
                 }
                 idx--;
             }else{
-                 const first=priorities.shift();
-                 priorities.push(first);
-                if(idx===0){
-                    idx=priorities.length-1;
-                }else{
-                    idx--;
-                }
-              
+                const first=priorities.shift();
+                priorities.push(first);
+                idx=idx===0?priorities.length-1:idx-1;
             }
-        
-        
-        
+
     }
     return answer;
 }
