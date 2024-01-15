@@ -4,27 +4,26 @@ function solution(n) {
     let currentY=0;
     let count=n;
     let num=1;
-
+    let location=0;
     
     while(count>0){
         for(let i=0;i<count;i++){
-            currentX++;
+            if(location===0){
+                 currentX++;
+                arr[currentX][currentY]=num;
+            }else if(location===1){
+                 currentY++;
             arr[currentX][currentY]=num;
+            }else if(location===2){
+                currentX--;
+            currentY--;
+            arr[currentX][currentY]=num;
+            }
             num++;
         }
 
-        for(let i=0;i<count-1;i++){
-            currentY++;
-            arr[currentX][currentY]=num;
-                num++;
-        }
-        for(let i=0;i<count-2;i++){
-            currentX--;
-            currentY--;
-            arr[currentX][currentY]=num;
-                num++;
-        }
-        count-=3;
+        count--;
+        location=location===2?0:location+1;
     }
 
     return arr.flat();
